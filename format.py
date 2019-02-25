@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import collections
+
 import bibtexparser
 
 
@@ -25,7 +27,7 @@ def main():
                 publisher.upper() + entry['year']
 
     bib.entries = sorted(bib.entries, key=lambda x: x['ID'])
-    bib.strings = dict(sorted(bib.strings.items()))
+    bib.strings = collections.OrderedDict(sorted(bib.strings.items()))
 
     writer = bibtexparser.bwriter.BibTexWriter()
     writer.add_trailing_comma = True
