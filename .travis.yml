@@ -1,0 +1,30 @@
+sudo: false
+
+os: linux
+
+dist: trusty
+
+python:
+  - 3.6
+
+language: python
+
+cache:
+  - pip
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
+
+script:
+  - ./.lint_bibtex.py
+
+after_success:
+  - |
+    if [ "$TRAVIS_BRANCH" = "master" ]; then
+      ./.format_bibtex.py
+      ./.travis_push.sh bibtex.bib
+    fi
