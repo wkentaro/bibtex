@@ -1,0 +1,3 @@
+[submodule "robotvisiontex"]
+	path = robotvisiontex
+	url = https://bitbucket.org/andysan29/robotvisiontex.git
