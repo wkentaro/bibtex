@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-import collections
 import sys
 
 import bibtexparser
@@ -13,7 +12,7 @@ def main():
     )
     with open('bibtex.bib') as f:
         try:
-            bib = bibtexparser.load(f, parser=parser)
+            bibtexparser.load(f, parser=parser)
         except Exception as e:
             print('Encounter following error:', file=sys.stderr)
             print(e)
