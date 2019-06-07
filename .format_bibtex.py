@@ -17,6 +17,8 @@ def main():
             publisher = entry['journal']
         elif entry['ENTRYTYPE'] == 'inproceedings':
             publisher = entry['booktitle']
+        elif entry['ENTRYTYPE'] == 'misc':
+            assert 'howpublished' in entry
         else:
             raise ValueError(
                 'unexpected ENTRYTYPE: {}'.format(entry['ENTRYTYPE'])
